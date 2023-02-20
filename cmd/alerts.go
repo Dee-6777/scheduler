@@ -1,6 +1,5 @@
 /*
 Copyright © 2023 NAME HERE <EMAIL ADDRESS>
-
 */
 package cmd
 
@@ -14,27 +13,22 @@ import (
 var alertsCmd = &cobra.Command{
 	Use:   "alerts",
 	Short: "A brief description of your command",
-	Long: `A longer description that spans multiple lines and likely contains examples
-and usage of using your command. For example:
-
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+	Long:  ``,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("alerts called")
+		Buzz()
 	},
+}
+
+func Buzz() {
+	for k := range Todos {
+		arg := []string{}
+		arg = append(arg, Todos[k].Time, Todos[k].Item)
+		Alerts(arg)
+		fmt.Printf("ID is '%s' Title is '%s'\n", Todos[k].ID, Todos[k].Item)
+	}
 }
 
 func init() {
 	rootCmd.AddCommand(alertsCmd)
-
-	// Here you will define your flags and configuration settings.
-
-	// Cobra supports Persistent Flags which will work for this command
-	// and all subcommands, e.g.:
-	// alertsCmd.PersistentFlags().String("foo", "", "A help for foo")
-
-	// Cobra supports local flags which will only run when this command
-	// is called directly, e.g.:
-	// alertsCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }
