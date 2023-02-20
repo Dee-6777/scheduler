@@ -32,13 +32,13 @@ type Todo struct { // struct and slices has been used as database
 }
 
 var Todos = []Todo{ // slice of type Todo has been declared and initialised with some json values
-	{ID: "1", Item: "Make your bed", Time: "17:51", Completed: "false"},
-	{ID: "2", Item: "Brush your Teeth", Time: "12:35", Completed: "false"},
-	{ID: "3", Item: "Go For a Walk", Time: "12:40", Completed: "false"},
-	{ID: "4", Item: "It's Breakfast time!", Time: "12:42:", Completed: "false"},
-	{ID: "5", Item: "Take a shower", Time: "12:43", Completed: "false"},
-	{ID: "6", Item: "Attend your Meeting", Time: "12:45", Completed: "false"},
-	{ID: "7", Item: "Take a Break", Time: "12:46", Completed: "false"},
+	{ID: "1", Item: "Make your bed", Time: "00:24", Completed: "false"},
+	{ID: "2", Item: "Brush your Teeth", Time: "00:25", Completed: "false"},
+	{ID: "3", Item: "Go For a Walk", Time: "00:26", Completed: "false"},
+	{ID: "4", Item: "It's Breakfast time!", Time: "00:27", Completed: "false"},
+	{ID: "5", Item: "Take a shower", Time: "00:28", Completed: "false"},
+	{ID: "6", Item: "Attend your Meeting", Time: "00:29", Completed: "false"},
+	{ID: "7", Item: "Take a Break", Time: "00:30", Completed: "false"},
 }
 
 func Schedule() {

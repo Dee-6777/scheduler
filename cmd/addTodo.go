@@ -5,7 +5,6 @@ package cmd
 
 import (
 	"fmt"
-	"io/ioutil"
 	"log"
 	"net/http"
 	"strings"
@@ -41,12 +40,6 @@ func AddTodo(args []string) {
 		log.Printf("Could not make a request. Error %v", err)
 	}
 	defer res.Body.Close()
-	body, err := ioutil.ReadAll(res.Body)
-	if err != nil {
-		log.Printf("Could not make a request. Error %v", err)
-	}
-	fmt.Println(res)
-	fmt.Println(string(body))
 }
 
 func init() {

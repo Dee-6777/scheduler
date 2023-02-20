@@ -7,7 +7,6 @@ package cmd
 
 import (
 	"fmt"
-	"io/ioutil"
 	"log"
 	"net/http"
 
@@ -44,9 +43,7 @@ func DelTodo(args []string) {
 	}
 
 	defer res.Body.Close()
-	body, _ := ioutil.ReadAll(res.Body)
-	fmt.Println(res)
-	fmt.Println(string(body))
+
 }
 
 func init() {

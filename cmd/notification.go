@@ -10,13 +10,13 @@ import (
 	"strings"
 	"time"
 
+	"log"
+
 	"github.com/gen2brain/beeep"
 	"github.com/olebedev/when"
 	"github.com/olebedev/when/rules/common"
 	"github.com/olebedev/when/rules/en"
 	"github.com/spf13/cobra"
-
-	"log"
 
 	"github.com/faiface/beep"
 	"github.com/faiface/beep/mp3"
@@ -42,7 +42,7 @@ var notificationCmd = &cobra.Command{
 
 func ShowNotif(args []string) {
 	if len(args) < 2 {
-		fmt.Printf("Usage:%s <hh:mm> <text message\n>", args[0])
+		fmt.Printf("Usage:%s <hh:mm> <text message\n>", os.Args[0])
 		os.Exit(1)
 	}
 
@@ -54,19 +54,17 @@ func ShowNotif(args []string) {
 	t, err := w.Parse(args[0], now)
 
 	if err != nil {
-		s := err.Error()
-		fmt.Printf("type: %T; value: %q\n", s, s)
+		fmt.Println(err)
 		os.Exit(2)
 	}
 
 	if t == nil {
-		fmt.Println("Unable to parse time!")
+		fmt.Println("Unable to parse time")
 		os.Exit(2)
 	}
 
 	if now.After(t.Time) {
-		fmt.Println("set a future time!")
-		os.Exit(3)
+		fmt.Println("set a future time")
 	}
 
 	diff := t.Time.Sub(now)
@@ -91,20 +89,20 @@ func ShowNotif(args []string) {
 		})))
 
 		<-done
-		beeep.Alert("Reminder", strings.Join(args[1:], " "), "assests/information.png")
+		err = beeep.Alert("Reminder", strings.Join(args[1:], " "), "assets/information.png")
 		if err != nil {
 			fmt.Println(err)
-			os.Exit(4)
+			os.Exit(3)
 		}
 	} else {
 		app := exec.Command(os.Args[0], os.Args[1:]...)
 		app.Env = append(os.Environ(), fmt.Sprintf("%s=%s", markName, markValue))
 		if err := app.Start(); err != nil {
 			fmt.Println(err)
-			os.Exit(5)
+			os.Exit(4)
 		}
 		fmt.Println("Reminder will be displayed after", diff.Round(time.Second))
-		os.Exit(0)
+		//os.Exit(0)
 	}
 }
 

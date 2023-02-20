@@ -9,7 +9,6 @@ import (
 
 var table = tview.NewTable().SetFixed(1, 1).SetSelectable(true, false)
 var pages = tview.NewPages()
-var jokeText = tview.NewTextView()
 var app = tview.NewApplication()
 var form = tview.NewForm()
 
@@ -30,11 +29,9 @@ var text1 = tview.NewTextView().
 
 func Greet() {
 	flex.SetDirection(tview.FlexRow).
-		AddItem(tview.NewFlex().
-			AddItem(jokeText, 0, 4, false), 0, 6, false).
 		AddItem(text, 0, 1, false)
 
-	flex.SetBorder(true).SetTitle("S[red]C[yellow]H[green]E[darkcyan]D[blue]U[darkmagenta]L[red]E[white]R[red]").SetTitleAlign(tview.AlignCenter)
+	flex.SetBorder(true).SetTitle("S[white]C[white]H[white]E[white]D[white]U[white]L[white]E[white]R[white]").SetTitleAlign(tview.AlignCenter)
 	// Adding conditions for different options
 	flex.SetInputCapture(func(event *tcell.EventKey) *tcell.EventKey {
 		if event.Rune() == 97 {
@@ -65,7 +62,6 @@ func Greet() {
 func ScheduleTable() {
 	pages.SwitchToPage("Your Schedule")
 	table.Clear()
-
 }
 
 func Greet_() {
@@ -189,6 +185,7 @@ func UpdateForm() *tview.Form {
 	form.AddButton("save", func() {
 		arg := []string{}
 		arg = append(arg, user_.ID, user_.Item, user_.Time, user_.Completed)
+		cmd.Update(arg)
 		cmd.Update(arg)
 		pages.SwitchToPage("Edit Schedule")
 	})
