@@ -1,8 +1,6 @@
 /*
 Copyright © 2023 NAME HERE <EMAIL ADDRESS>
-
 */
-
 package cmd
 
 import (
@@ -38,11 +36,11 @@ var notificationCmd = &cobra.Command{
 	Args:  cobra.MaximumNArgs(2),
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("notification called")
-		Alerts(args)
+		ShowNotif(args)
 	},
 }
 
-func Alerts(args []string) {
+func ShowNotif(args []string) {
 	if len(args) < 2 {
 		fmt.Printf("Usage:%s <hh:mm> <text message\n>", args[0])
 		os.Exit(1)
@@ -68,6 +66,7 @@ func Alerts(args []string) {
 
 	if now.After(t.Time) {
 		fmt.Println("set a future time!")
+		os.Exit(3)
 	}
 
 	diff := t.Time.Sub(now)

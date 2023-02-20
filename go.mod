@@ -3,7 +3,6 @@ module github.com/Dee-6777/scheduler
 go 1.19
 
 require (
-	github.com/faiface/beep v1.1.0
 	github.com/gdamore/tcell/v2 v2.5.4
 	github.com/gen2brain/beeep v0.0.0-20220909211152-5a9ec94374f6
 	github.com/gorilla/mux v1.8.0
@@ -14,6 +13,7 @@ require (
 
 require (
 	github.com/AlekSi/pointer v1.0.0 // indirect
+	github.com/faiface/beep v1.1.0 // indirect
 	github.com/gdamore/encoding v1.0.0 // indirect
 	github.com/go-toast/toast v0.0.0-20190211030409-01e6764cf0a4 // indirect
 	github.com/godbus/dbus/v5 v5.1.0 // indirect

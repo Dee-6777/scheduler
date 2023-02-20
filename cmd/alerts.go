@@ -24,7 +24,7 @@ func Buzz() {
 	for k := range Todos {
 		arg := []string{}
 		arg = append(arg, Todos[k].Time, Todos[k].Item)
-		Alerts(arg)
+		ShowNotif(arg)
 	}
 }
 
