@@ -32,7 +32,7 @@ type Todo struct { // struct and slices has been used as database
 }
 
 var Todos = []Todo{ // slice of type Todo has been declared and initialised with some json values
-	{ID: "1", Item: "Make your bed", Time: "12:30", Completed: "false"},
+	{ID: "1", Item: "Make your bed", Time: "13:40", Completed: "false"},
 	{ID: "2", Item: "Brush your Teeth", Time: "12:35", Completed: "false"},
 	{ID: "3", Item: "Go For a Walk", Time: "12:40", Completed: "false"},
 	{ID: "4", Item: "It's Breakfast time!", Time: "12:42:", Completed: "false"},

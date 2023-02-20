@@ -25,7 +25,6 @@ func Buzz() {
 		arg := []string{}
 		arg = append(arg, Todos[k].Time, Todos[k].Item)
 		Alerts(arg)
-		fmt.Printf("ID is '%s' Title is '%s'\n", Todos[k].ID, Todos[k].Item)
 	}
 }
 

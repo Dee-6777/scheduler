@@ -71,8 +71,8 @@ func ScheduleTable() {
 func Greet_() {
 	pages.SwitchToPage("Edit Schedule")
 	flex1.Clear()
-	flex1.SetDirection(tview.FlexRow). // Adjusting jokelist & jokeText
-						AddItem(text1, 0, 1, false)
+	flex1.SetDirection(tview.FlexRow).
+		AddItem(text1, 0, 1, false)
 	flex1.SetBorder(true).SetTitle("E[red]D[yellow]I[green]T[darkcyan]O[blue]R[darkmagenta]").SetTitleAlign(tview.AlignCenter)
 	flex1.SetInputCapture(func(event *tcell.EventKey) *tcell.EventKey {
 		if event.Rune() == 97 {
