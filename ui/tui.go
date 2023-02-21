@@ -2,7 +2,6 @@ package ui
 
 import (
 	"github.com/Dee-6777/scheduler/cmd"
-	//"github.com/stjohnjohnson/gifview"
 	"github.com/gdamore/tcell/v2"
 	"github.com/rivo/tview"
 )
@@ -16,8 +15,7 @@ var form = tview.NewForm()
 
 var flex = tview.NewFlex()
 var flex1 = tview.NewFlex()
-
-//var flex2 = tview.NewFlex()
+var flex2 = tview.NewFlex()
 
 var text = tview.NewTextView().
 	SetTextColor(tcell.ColorPaleVioletRed).
@@ -60,8 +58,6 @@ func Greet() {
 }
 
 func ScheduleTable() {
-	pages.SwitchToPage("Your Schedule")
-	table.Clear()
 }
 
 func Greet_() {
