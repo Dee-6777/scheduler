@@ -6,3 +6,4 @@
 
 A CLI tool written in Golang that will alert you at specified times so that you won't miss something important.You can also edit your schedule through the interactive ui which was made using tview.
 
+#### Still working...Updating soon!
