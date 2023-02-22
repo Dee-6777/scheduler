@@ -35,14 +35,14 @@ var notificationCmd = &cobra.Command{
 	Long:  ``,
 	Args:  cobra.MaximumNArgs(2),
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("notification called")
+		//fmt.Println("notification called")
 		ShowNotif(args)
 	},
 }
 
 func ShowNotif(args []string) {
 	if len(args) < 2 {
-		fmt.Printf("Usage:%s <hh:mm> <text message\n>", os.Args[0])
+		//fmt.Printf("Usage:%s <hh:mm> <text message\n>", os.Args[0])
 		os.Exit(1)
 	}
 
@@ -92,20 +92,18 @@ func ShowNotif(args []string) {
 		err = beeep.Alert("Reminder", strings.Join(args[1:], " "), "assets/information.png")
 		if err != nil {
 			fmt.Println(err)
-			os.Exit(3)
+			os.Exit(4)
 		}
 	} else {
 		app := exec.Command(os.Args[0], os.Args[1:]...)
 		app.Env = append(os.Environ(), fmt.Sprintf("%s=%s", markName, markValue))
 		if err := app.Start(); err != nil {
 			fmt.Println(err)
-			os.Exit(4)
+			os.Exit(5)
 		}
 		fmt.Println("Reminder will be displayed after", diff.Round(time.Second))
-		//os.Exit(0)
 	}
 }
-
 func init() {
 	rootCmd.AddCommand(notificationCmd)
 }
