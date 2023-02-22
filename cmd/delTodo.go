@@ -27,7 +27,7 @@ var delTodoCmd = &cobra.Command{
 
 func DelTodo(args []string) {
 	str := args[0]
-	url := "http://localhost:8080/todos/" + str
+	url := "https://scheduler-api-go.onrender.com/todos/" + str
 
 	req, err := http.NewRequest("DELETE", url, nil)
 	if err != nil {

@@ -6,7 +6,14 @@ import (
 	"github.com/rivo/tview"
 )
 
-var table = tview.NewTable().SetSelectable(true, false)
+type Todos struct { // struct and slices has been used as database
+	ID        string `json:"id"`
+	Item      string `json:"title"`
+	Time      string `json:"time"`
+	Completed string `json:"completed"`
+}
+
+// var table = tview.NewTable().SetSelectable(true, false)
 var pages = tview.NewPages()
 var app = tview.NewApplication()
 var form = tview.NewForm()
@@ -118,7 +125,7 @@ func Greet_() {
 
 func AddForm() *tview.Form {
 
-	user_ := cmd.Todo{}
+	user_ := cmd.Todos{}
 
 	form.SetBackgroundColor(tcell.ColorPeachPuff)
 
@@ -159,7 +166,7 @@ func AddForm() *tview.Form {
 }
 
 func DeleteForm() *tview.Form {
-	user_ := cmd.Todo{}
+	user_ := cmd.Todos{}
 
 	form.SetBackgroundColor(tcell.ColorAntiqueWhite)
 
@@ -181,10 +188,9 @@ func DeleteForm() *tview.Form {
 }
 
 func UpdateForm() *tview.Form {
+	user_ := cmd.Todos{}
 
-	user_ := cmd.Todo{}
-
-	//form.SetBackgroundColor(tcell.ColorOrangeRed)
+	form.SetBackgroundColor(tcell.ColorLightPink)
 
 	form.AddInputField("ID", "", 20, nil, func(ID string) {
 		user_.ID = ID

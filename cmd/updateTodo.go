@@ -25,7 +25,7 @@ var updateTodoCmd = &cobra.Command{
 
 func Update(args []string) {
 	str := args[0]
-	url := "http://localhost:8080/todos/" + str
+	url := "https://scheduler-api-go.onrender.com/todos/" + str
 
 	payload := strings.NewReader("{\n  \"id\": \"" + args[0] + "\",\n  \"title\": \"" + args[1] + "\",\n  \"time\": \"" + args[2] + "\",\n  \"completed\": \"" + args[3] + "\"\n} \n\n\n")
 

@@ -12,17 +12,13 @@ import (
 
 func main() {
 	var waitgroup sync.WaitGroup
-	waitgroup.Add(3)
+	waitgroup.Add(2)
 	go func() {
 		cmd.Execute()
 		waitgroup.Done()
 	}()
 	go func() {
 		ui.Greet()
-		waitgroup.Done()
-	}()
-	go func() {
-		cmd.Buzz()
 		waitgroup.Done()
 	}()
 	waitgroup.Wait()

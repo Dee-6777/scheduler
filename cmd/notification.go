@@ -42,7 +42,7 @@ var notificationCmd = &cobra.Command{
 
 func ShowNotif(args []string) {
 	if len(args) < 2 {
-		//fmt.Printf("Usage:%s <hh:mm> <text message\n>", os.Args[0])
+		fmt.Printf("Usage:%s <hh:mm> <text message\n>", os.Args[0])
 		os.Exit(1)
 	}
 

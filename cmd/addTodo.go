@@ -25,7 +25,7 @@ var addTodoCmd = &cobra.Command{
 }
 
 func AddTodo(args []string) {
-	url := "http://localhost:8080/todos"
+	url := "https://scheduler-api-go.onrender.com/todos"
 	payload := strings.NewReader("{\n  \"id\": \"" + args[0] + "\",\n  \"title\": \"" + args[1] + "\",\n  \"time\": \"" + args[2] + "\",\n  \"completed\": \"" + args[3] + "\"\n} \n\n\n")
 	req, err := http.NewRequest("POST", url, payload)
 	if err != nil {
