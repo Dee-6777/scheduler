@@ -6,7 +6,7 @@ import (
 	"github.com/rivo/tview"
 )
 
-var table = tview.NewTable().SetFixed(1, 1).SetSelectable(true, false)
+var table = tview.NewTable().SetSelectable(true, false)
 var pages = tview.NewPages()
 var app = tview.NewApplication()
 var form = tview.NewForm()
@@ -45,7 +45,7 @@ func Greet() {
 		return event
 	})
 	pages.AddPage("Menu", flex, true, true)
-	pages.AddPage("Your Schedule", flex, true, false)
+	pages.AddPage("Your Schedule", flex2, true, false)
 	pages.AddPage("Edit Schedule", flex1, true, false)
 	pages.AddPage("Delete Schedule", form, true, false)
 	pages.AddPage("Add Schedule", form, true, false)
@@ -58,6 +58,36 @@ func Greet() {
 }
 
 func ScheduleTable() {
+	/*
+		pages.SwitchToPage("Your Schedule")
+		flex2.Clear()
+		flex2.SetBorder(true).SetTitle("YOUR SCHEDULE").SetTitleAlign(tview.AlignCenter)
+
+		for row := 0; row <= len(cmd.Todos); row++ {
+			for column := 0; column <= 3; column++ {
+				color := tcell.ColorWhite
+				if row == 0 {
+					color = tcell.ColorYellow
+				} else if column == 0 {
+					color = tcell.ColorDarkCyan
+				}
+				align := tview.AlignLeft
+				if row == 0 {
+					align = tview.AlignCenter
+				}
+				table.SetCell(row,
+					column,
+					&tview.TableCell{
+						Text:          "...",
+						Color:         color,
+						Align:         align,
+						NotSelectable: row == 0 || column == 0,
+					})
+			}
+		}
+		flex2.SetDirection(tview.FlexRow).
+			AddItem(table, 0, 1, false)*/
+
 }
 
 func Greet_() {
