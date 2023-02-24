@@ -63,7 +63,7 @@ func GetTodosData(baseAPI string) []byte {
 		os.Exit(1)
 	}
 	request.Header.Add("Accept", "application/json")
-	request.Header.Add("User-Agent", "Joke generator CLI")
+	request.Header.Add("User-Agent", "CLI")
 
 	response, err := http.DefaultClient.Do(request)
 	if err != nil {
